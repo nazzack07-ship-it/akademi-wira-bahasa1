@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akademi Wira Bahasa | Penjodoh Bilangan</title>
+<style>
+:root{--navy:#14264b;--blue:#3267c8;--sky:#eaf4ff;--gold:#ffd166;--mint:#d8f7e5;--purple:#7256c9;--ink:#20304b;--white:#fff;--muted:#64748b;--pink:#ffe4ef}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(180deg,#eaf4ff,#fff8e7 60%,#f2edff);line-height:1.6}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 16px;font-weight:700;background:var(--blue);color:white;box-shadow:0 4px 0 #204a9b;transition:.15s}button:hover{transform:translateY(-1px);filter:brightness(1.05)}button:active{transform:translateY(2px);box-shadow:none}.secondary{background:#e7efff;color:#244b93;box-shadow:0 3px 0 #bfd1f4}.gold{background:var(--gold);color:#553d00;box-shadow:0 4px 0 #d9a52c}.danger{background:#d94d65;box-shadow:0 4px 0 #a52f44}.small{padding:7px 10px;font-size:.9rem}
+header{background:linear-gradient(135deg,#14264b,#315eb5 65%,#7256c9);color:white;padding:28px 18px 24px;text-align:center;position:relative;overflow:hidden}
+header:before,header:after{content:"✦";position:absolute;color:#ffe08a;font-size:54px;opacity:.7}header:before{left:7%;top:16px}header:after{right:8%;bottom:6px}
+.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:2px;color:#ffe08a;font-weight:bold}
+h1{font-size:clamp(2rem,5vw,3.5rem);margin:6px 0 4px;line-height:1.1}header p{max-width:720px;margin:10px auto;color:#eef4ff}
+.wrap{max-width:1100px;margin:auto;padding:18px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch;margin-top:18px}.panel,.card{background:rgba(255,255,255,.94);border:1px solid #dbe7f7;border-radius:20px;padding:20px;box-shadow:0 8px 22px rgba(35,62,105,.08)}.hero-art{background:linear-gradient(140deg,#d8edff,#f1e8ff);border-radius:20px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;min-height:220px}.castle{font-size:5rem;line-height:1.2}.hero-art p{font-weight:bold;color:#354a83}
+h2{color:#18356d;margin-top:0}h3{color:#274c94;margin:0 0 7px}.section{margin-top:28px;scroll-margin-top:15px}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.nav a{background:#fff;border:1px solid #d5e2f5;color:#244b93;padding:8px 12px;border-radius:999px;text-decoration:none;font-weight:bold;font-size:.9rem}.nav a:hover{background:#e7efff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.stat{background:#f3f7ff;border-radius:14px;padding:12px;text-align:center}.stat strong{font-size:1.45rem;color:#274c94;display:block}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.lesson{border-radius:16px;padding:16px;background:#f6f9ff;border:1px solid #dce8fa}.emoji{font-size:2rem}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;background:white;border-radius:12px;overflow:hidden}th,td{padding:11px 12px;border-bottom:1px solid #e4ebf5;text-align:left;vertical-align:top}th{background:#e7efff;color:#1c3f83}tr:last-child td{border-bottom:0}.note{background:#fff5d9;border-left:5px solid #f0b92f;border-radius:10px;padding:13px 15px}.mission-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.mission{background:#f3f7ff;border:2px solid #dbe7f7;border-radius:16px;padding:13px;text-align:center}.mission .icon{font-size:2rem}.mission.done{background:#e0f8e8;border-color:#63bf87}.mission.locked{opacity:.65}.mission p{font-size:.9rem;margin:5px 0}.quizbox{background:#f7f9ff;border:1px solid #dce7f8;padding:16px;border-radius:16px;margin:12px 0}.options{display:grid;gap:8px;margin-top:12px}.options button{background:white;color:#243b65;border:2px solid #dbe5f5;box-shadow:none;text-align:left}.options button:hover{background:#eef5ff}.options button.correct{background:#d8f7e5;border-color:#45ae73;color:#155b35}.options button.wrong{background:#ffe1e6;border-color:#d94d65;color:#8d1c32}.feedback{margin-top:10px;font-weight:bold}.badge-row{display:flex;flex-wrap:wrap;gap:10px}.badge{background:#fff5d9;border:1px solid #efd17d;border-radius:12px;padding:10px 13px;font-weight:bold}.badge.inactive{filter:grayscale(1);opacity:.45}.progress{height:12px;background:#e5ebf5;border-radius:999px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#46b87b,#ffd166);transition:width .3s}.footer{text-align:center;padding:28px 12px;color:#64748b;font-size:.9rem}.hidden{display:none!important}.inline-form{display:flex;gap:8px;flex-wrap:wrap}.inline-form input{padding:10px;border:1px solid #cbd8ed;border-radius:10px;flex:1;min-width:160px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.mission-list{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(3,1fr)}.panel,.card{padding:16px}.wrap{padding:12px}header:before{left:2%;font-size:35px}header:after{right:3%;font-size:35px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Akademi Bahasa • Modul Pengembaraan</div>
+  <h1>🏰 Akademi Wira Bahasa</h1>
+  <p><strong>Misi: Kuasai Penjodoh Bilangan!</strong><br>Belajar, selesaikan cabaran dan kumpulkan lencana untuk menjadi Wira Bahasa.</p>
+</header>
+<main class="wrap">
+  <section class="hero" id="mula">
+    <div class="panel">
+      <h2>Selamat datang, pelatih! ✨</h2>
+      <p>Kuasa bahasa di akademi semakin lemah kerana penjodoh bilangan digunakan secara salah. Ketua Akademi memerlukan bantuan kamu untuk memulihkan ilmu bahasa. Selesaikan lima tahap latihan, kumpulkan mata XP dan buktikan kamu layak menjadi Wira Bahasa!</p>
+      <div class="inline-form">
+        <input id="playerName" maxlength="30" placeholder="Masukkan nama pelatih (pilihan)" aria-label="Nama pelatih">
+        <button onclick="saveName()">Daftar pelatih</button>
+      </div>
+      <p id="welcome" aria-live="polite">Sedia untuk memulakan pengembaraan?</p>
+      <div class="stats">
+        <div class="stat"><strong id="xp">0</strong>Mata XP</div>
+        <div class="stat"><strong id="completed">0/5</strong>Tahap selesai</div>
+        <div class="stat"><strong id="rank">Pelatih</strong>Gelaran</div>
+      </div>
+    </div>
+    <div class="hero-art"><div><div class="castle">🏰✨📚</div><p>Ilmu ialah kuasa seorang wira!</p><span>🛡️ ⭐ 🗝️</span></div></div>
+  </section>
+
+  <nav class="nav" aria-label="Navigasi halaman">
+    <a href="#nota">📘 Nota</a><a href="#peta">🗺️ Peta misi</a><a href="#kuiz">⚔️ Cabaran</a><a href="#ganjaran">🏅 Ganjaran</a><a href="#rumusan">🎓 Rumusan</a>
+  </nav>
+
+  <section class="section panel" id="nota">
+    <h2>📘 Perpustakaan Ilmu: Apa itu penjodoh bilangan?</h2>
+    <p><strong>Penjodoh bilangan</strong> ialah perkataan yang digunakan bersama-sama kata bilangan untuk menerangkan atau menghitung kata nama seperti manusia, haiwan, benda dan tumbuh-tumbuhan.</p>
+    <div class="note"><strong>Formula mudah:</strong> Kata bilangan + penjodoh bilangan + kata nama.<br>Contoh: <strong>tiga + batang + pensel</strong> = tiga batang pensel.</div>
+    <div class="grid" style="margin-top:15px">
+      <article class="lesson"><div class="emoji">🧑‍🏫</div><h3>Manusia</h3><p><strong>orang</strong> — seorang guru, tiga orang murid.</p></article>
+      <article class="lesson"><div class="emoji">🐈</div><h3>Haiwan</h3><p><strong>ekor</strong> — seekor kucing, lima ekor ikan.</p></article>
+      <article class="lesson"><div class="emoji">✏️</div><h3>Benda panjang</h3><p><strong>batang</strong> — sebatang pensel, dua batang penyapu.</p></article>
+      <article class="lesson"><div class="emoji">🍎</div><h3>Benda kecil/bulat</h3><p><strong>biji</strong> — sebiji guli, tiga biji epal.</p></article>
+      <article class="lesson"><div class="emoji">📄</div><h3>Benda nipis/leper</h3><p><strong>helai / keping</strong> — sehelai kertas, sekeping roti.</p></article>
+      <article class="lesson"><div class="emoji">🌹</div><h3>Bunga</h3><p><strong>kuntum</strong> — sekuntum bunga ros.</p></article>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <h2>🧭 Panduan Penjodoh Bilangan</h2>
+    <p>Gunakan jadual ini sebagai rujukan semasa menjalankan misi. Pilihan penjodoh bilangan bergantung pada jenis, bentuk dan konteks kata nama.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Penjodoh bilangan</th><th>Kegunaan lazim</th><th>Contoh</th></tr></thead>
+      <tbody>
+        <tr><td>orang</td><td>Manusia</td><td>seorang doktor, lima orang murid</td></tr>
+        <tr><td>ekor</td><td>Haiwan</td><td>seekor arnab, tiga ekor ikan</td></tr>
+        <tr><td>batang</td><td>Benda panjang, pokok atau sungai</td><td>sebatang pembaris, sebatang pokok</td></tr>
+        <tr><td>biji</td><td>Benda kecil/bulat dan sesetengah buah</td><td>sebiji guli, sebiji epal</td></tr>
+        <tr><td>buah</td><td>Benda konkrit tertentu</td><td>sebuah rumah, sebuah kereta</td></tr>
+        <tr><td>helai</td><td>Benda nipis atau lebar</td><td>sehelai kertas, sehelai baju</td></tr>
+        <tr><td>keping</td><td>Benda nipis dan leper</td><td>sekeping roti, sekeping gambar</td></tr>
+        <tr><td>bilah</td><td>Benda tajam</td><td>sebilah pisau, sebilah parang</td></tr>
+        <tr><td>utas</td><td>Benda panjang dan halus</td><td>seutas rantai, seutas tali</td></tr>
+        <tr><td>bentuk</td><td>Cincin dan benda tertentu</td><td>sebentuk cincin</td></tr>
+        <tr><td>naskhah</td><td>Bahan bacaan/karya bertulis</td><td>senaskhah majalah, dua naskhah novel</td></tr>
+        <tr><td>kuntum</td><td>Bunga</td><td>sekuntum bunga ros</td></tr>
+        <tr><td>pasang</td><td>Benda berpasangan</td><td>sepasang kasut, sepasang sarung tangan</td></tr>
+        <tr><td>gulung</td><td>Benda yang digulung</td><td>segulung tikar, segulung tali</td></tr>
+        <tr><td>pucuk</td><td>Surat dan beberapa benda tertentu</td><td>sepucuk surat</td></tr>
+        <tr><td>tongkol</td><td>Jagung</td><td>setongkol jagung</td></tr>
+        <tr><td>sisir</td><td>Pisang</td><td>sesisir pisang</td></tr>
+        <tr><td>gugus</td><td>Benda/buah dalam kelompok</td><td>segugus anggur</td></tr>
+        <tr><td>longgok</td><td>Benda yang dikumpulkan bertimbun</td><td>selonggok pasir</td></tr>
+        <tr><td>rangkap</td><td>Puisi atau pantun</td><td>serangkap pantun</td></tr>
+        <tr><td>baris</td><td>Susunan yang berderet</td><td>sebaris rumah</td></tr>
+        <tr><td>bidang</td><td>Tanah atau kain yang luas</td><td>sebidang tanah</td></tr>
+        <tr><td>laras</td><td>Senjata api</td><td>selaras senapang</td></tr>
+        <tr><td>das</td><td>Tembakan/bunyi tembakan</td><td>sedas tembakan</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note" style="margin-top:14px"><strong>Ingat, wira!</strong> Jangan pilih penjodoh bilangan secara rawak. Fikirkan jenis, bentuk atau cara kata nama itu dihitung. Contohnya, manusia menggunakan <em>orang</em>, manakala haiwan lazimnya menggunakan <em>ekor</em>.</div>
+  </section>
+
+  <section class="section panel" id="peta">
+    <h2>🗺️ Peta Akademi: Lima Misi Wira</h2>
+    <p>Pilih misi untuk memulakan latihan. Lengkapkan soalan dalam setiap misi untuk memperoleh mata XP dan membuka lencana.</p>
+    <div class="progress"><span id="progressbar"></span></div>
+    <p id="progressText">Kemajuan akademi: 0 daripada 5 tahap selesai.</p>
+    <div class="mission-list" id="missionList">
+      <div class="mission"><div class="icon">📚</div><strong>1. Pelatih Baharu</strong><p>Kenali penjodoh bilangan.</p><button class="small" onclick="startMission(0)">Mula misi</button></div>
+      <div class="mission"><div class="icon">🧩</div><strong>2. Ahli Padan Kata</strong><p>Padankan kata nama.</p><button class="small" onclick="startMission(1)">Mula misi</button></div>
+      <div class="mission"><div class="icon">📖</div><strong>3. Pengawal Tatabahasa</strong><p>Lengkapkan ayat.</p><button class="small" onclick="startMission(2)">Mula misi</button></div>
+      <div class="mission"><div class="icon">🔎</div><strong>4. Wira Tatabahasa</strong><p>Betulkan kesalahan.</p><button class="small" onclick="startMission(3)">Mula misi</button></div>
+      <div class="mission"><div class="icon">🏆</div><strong>5. Peperiksaan Agung</strong><p>Ujian akhir akademi.</p><button class="small" onclick="startMission(4)">Mula misi</button></div>
+    </div>
+  </section>
+
+  <section class="section panel hidden" id="kuiz">
+    <h2 id="missionTitle">⚔️ Cabaran Misi</h2>
+    <p id="missionIntro"></p>
+    <div id="questionArea"></div>
+    <div id="missionEnd" class="hidden">
+      <h3 id="endTitle">Misi selesai!</h3><p id="endText"></p>
+      <button onclick="backToMap()">Kembali ke peta</button>
+      <button class="secondary" onclick="retryMission()">Cuba misi lagi</button>
+    </div>
+  </section>
+
+  <section class="section panel" id="ganjaran">
+    <h2>🏅 Dewan Ganjaran</h2>
+    <p>Kumpulkan lencana dengan melengkapkan setiap tahap. Lencana akan menyala apabila misi diselesaikan.</p>
+    <div class="badge-row" id="badgeRow">
+      <div class="badge inactive" id="badge0">📘 Pelatih</div>
+      <div class="badge inactive" id="badge1">🧩 Pakar Padanan</div>
+      <div class="badge inactive" id="badge2">📖 Penjaga Bahasa</div>
+      <div class="badge inactive" id="badge3">🛡️ Wira Tatabahasa</div>
+      <div class="badge inactive" id="badge4">👑 Wira Bahasa</div>
+    </div>
+    <p id="rewardMessage">Selesaikan misi untuk membuka lencana pertama!</p>
+    <button class="gold" onclick="showCertificate()">Lihat sijil pencapaian</button>
+    <div id="certificate" class="hidden" style="margin-top:16px;border:4px double #d7a82b;border-radius:16px;padding:22px;text-align:center;background:#fffdf4">
+      <div style="font-size:2.4rem">🏅 👑 🏅</div><h2>Sijil Pengiktirafan</h2>
+      <p>Dengan ini diiktiraf bahawa</p><h3 id="certName" style="font-size:1.7rem"></h3>
+      <p id="certText">telah menyertai Akademi Wira Bahasa.</p><p><strong>Teruskan menggunakan Bahasa Melayu dengan tepat dan yakin!</strong></p>
+      <button class="secondary" onclick="window.print()">Cetak / Simpan sebagai PDF</button>
+    </div>
+  </section>
+
+  <section class="section panel" id="rumusan">
+    <h2>🎓 Rumusan Ilmu Wira</h2>
+    <ul>
+      <li>Penjodoh bilangan digunakan bersama-sama kata bilangan untuk menghitung kata nama.</li>
+      <li>Kenal pasti kata nama yang hendak dihitung.</li>
+      <li>Perhatikan jenis, bentuk dan sifat kata nama tersebut.</li>
+      <li>Pilih penjodoh bilangan yang sesuai dengan konteks ayat.</li>
+      <li>Berlatih membina ayat supaya penggunaan penjodoh bilangan menjadi lebih tepat.</li>
+    </ul>
+    <h3>🚧 Kesalahan yang perlu dielakkan</h3>
+    <div class="tablewrap"><table><thead><tr><th>Kurang tepat</th><th>Bentuk yang sesuai</th><th>Penjelasan</th></tr></thead><tbody>
+      <tr><td>seekor guru</td><td>seorang guru</td><td>Manusia menggunakan “orang”.</td></tr>
+      <tr><td>sebatang bola</td><td>sebiji bola</td><td>Bola lazimnya menggunakan “biji”.</td></tr>
+      <tr><td>sekuntum pensel</td><td>sebatang pensel</td><td>Pensel berbentuk panjang.</td></tr>
+      <tr><td>sehelai cincin</td><td>sebentuk cincin</td><td>Cincin lazimnya menggunakan “bentuk”.</td></tr>
+      <tr><td>seekor kasut</td><td>sepasang kasut</td><td>Dua kasut yang sepadan dikira sebagai sepasang.</td></tr>
+    </tbody></table></div>
+    <h3 style="margin-top:18px">📝 Misi pengayaan: Pemburu Penjodoh Bilangan</h3>
+    <p>Cari lima objek di rumah atau di dalam kelas. Catat kata nama, penjodoh bilangan dan frasa yang betul. Contoh: <em>pensel — batang — sebatang pensel</em>.</p>
+    <h3>🔗 Sumber rujukan</h3>
+    <p><a href="https://prpm.dbp.gov.my/" target="_blank" rel="noopener">Pusat Rujukan Persuratan Melayu (DBP)</a> untuk semakan bahasa dan <a href="https://www.moe.gov.my/" target="_blank" rel="noopener">Kementerian Pendidikan Malaysia</a> untuk rujukan kurikulum.</p>
+  </section>
+  <div class="footer">Akademi Wira Bahasa • Bahan pembelajaran Penjodoh Bilangan<br>Direka untuk pembelajaran sekolah rendah. Guru boleh menyesuaikan kandungan mengikut tahap murid.</div>
+</main>
+<script>
+const missions=[
+ {title:"Tahap 1 — Pelatih Baharu",intro:"Kenali asas penjodoh bilangan. Jawab soalan untuk memperoleh 10 XP bagi setiap jawapan betul.",questions:[
+  {q:"Penjodoh bilangan manakah sesuai untuk manusia?",opts:["ekor","orang","batang"],a:1,why:"Manusia dihitung menggunakan penjodoh bilangan orang."},
+  {q:"Pilih frasa yang betul.",opts:["seekor kucing","sebatang kucing","sekuntum kucing"],a:0,why:"Haiwan lazimnya menggunakan ekor: seekor kucing."},
+  {q:"Apakah maksud penjodoh bilangan?",opts:["Perkataan untuk menerangkan kata kerja","Perkataan yang digunakan bersama kata bilangan untuk menghitung kata nama","Perkataan yang menunjukkan tempat"],a:1,why:"Penjodoh bilangan digunakan bersama kata bilangan untuk menghitung kata nama."}
+ ]},
+ {title:"Tahap 2 — Ahli Padan Kata",intro:"Padankan kata nama dengan penjodoh bilangan yang sesuai.",questions:[
+  {q:"___ pensel",opts:["Sebiji","Sebatang","Sekuntum"],a:1,why:"Pensel berbentuk panjang, jadi gunakan sebatang pensel."},
+  {q:"___ bunga ros",opts:["Sekuntum","Seekor","Sebilah"],a:0,why:"Kuntum digunakan untuk bunga."},
+  {q:"___ majalah",opts:["Seekor","Senaskhah","Sebatang"],a:1,why:"Bahan bacaan seperti majalah lazimnya dihitung dengan naskhah."}
+ ]},
+ {title:"Tahap 3 — Pengawal Tatabahasa",intro:"Lengkapkan ayat dengan pilihan penjodoh bilangan yang betul.",questions:[
+  {q:"Adik makan ___ roti.",opts:["sekeping","seutas","seekor"],a:0,why:"Roti yang nipis dan leper boleh dihitung menggunakan keping."},
+  {q:"Ayah menerima ___ surat.",opts:["sepucuk","sekuntum","sebiji"],a:0,why:"Ungkapan yang lazim ialah sepucuk surat."},
+  {q:"Ibu membeli ___ kasut.",opts:["sehelai","sepasang","sebatang"],a:1,why:"Kasut yang terdiri daripada dua belah yang sepadan dihitung sebagai sepasang."}
+ ]},
+ {title:"Tahap 4 — Wira Tatabahasa",intro:"Kenal pasti frasa yang betul dan fikirkan sebabnya.",questions:[
+  {q:"Pilih frasa yang betul.",opts:["Seekor guru","Seorang guru","Sebatang guru"],a:1,why:"Guru ialah manusia, jadi gunakan seorang guru."},
+  {q:"Pilih frasa yang betul.",opts:["Sebilah pisau","Sekuntum pisau","Seekor pisau"],a:0,why:"Bilah digunakan untuk benda tajam seperti pisau."},
+  {q:"Pilih frasa yang betul.",opts:["Sebentuk cincin","Sehelai cincin","Segulung cincin"],a:0,why:"Cincin lazimnya dihitung menggunakan bentuk."},
+  {q:"Pilih frasa yang betul.",opts:["Sesisir pisang","Seekor pisang","Sebilah pisang"],a:0,why:"Sisir digunakan untuk kelompok pisang."}
+ ]},
+ {title:"Tahap 5 — Peperiksaan Agung",intro:"Cabaran terakhir! Gunakan semua ilmu yang telah dipelajari.",questions:[
+  {q:"Di taman ada ___ pokok kelapa.",opts:["sebatang","sekeping","sekuntum"],a:0,why:"Pokok kelapa boleh dihitung menggunakan batang."},
+  {q:"Nenek memakai ___ rantai.",opts:["seutas","seekor","sebiji"],a:0,why:"Rantai lazimnya menggunakan penjodoh bilangan utas."},
+  {q:"Kami membaca ___ pantun.",opts:["serangkap","seekor","sehelai"],a:0,why:"Rangkap digunakan untuk bahagian puisi seperti pantun."},
+  {q:"Pilih frasa yang betul.",opts:["Sebuah kereta","Sekuntum kereta","Sebilah kereta"],a:0,why:"Kereta ialah benda konkrit yang lazimnya menggunakan buah."},
+  {q:"Apakah langkah terbaik untuk memilih penjodoh bilangan?",opts:["Pilih secara rawak","Lihat jenis, bentuk dan konteks kata nama","Gunakan penjodoh yang sama untuk semua benda"],a:1,why:"Penjodoh bilangan dipilih berdasarkan jenis, bentuk dan konteks kata nama."}
+ ]}
+];
+let xp=0,done=new Set(),current=-1,qIndex=0,score=0,answered=false,player="Pelatih";
+function saveName(){let n=document.getElementById('playerName').value.trim();if(n)player=n;document.getElementById('welcome').textContent='Selamat datang, '+player+'! Latihan pertama menanti kamu.';updateUI()}
+function updateUI(){document.getElementById('xp').textContent=xp;document.getElementById('completed').textContent=done.size+'/5';document.getElementById('rank').textContent=done.size===5?'Wira Bahasa':done.size>=3?'Wira Muda':done.size>=1?'Pelatih Pro':'Pelatih';document.getElementById('progressbar').style.width=(done.size/5*100)+'%';document.getElementById('progressText').textContent='Kemajuan akademi: '+done.size+' daripada 5 tahap selesai.';for(let i=0;i<5;i++){let b=document.getElementById('badge'+i);if(b)b.classList.toggle('inactive',!done.has(i));}document.getElementById('rewardMessage').textContent=done.size===5?'Tahniah! Semua lencana telah dikumpulkan. Kamu Wira Bahasa!':done.size+' daripada 5 lencana telah diperoleh.';document.querySelectorAll('#missionList .mission').forEach((el,i)=>{el.classList.toggle('done',done.has(i));});}
+function startMission(i){current=i;qIndex=0;score=0;answered=false;document.getElementById('kuiz').classList.remove('hidden');document.getElementById('missionEnd').classList.add('hidden');document.getElementById('missionTitle').textContent='⚔️ '+missions[i].title;document.getElementById('missionIntro').textContent=missions[i].intro;renderQuestion();document.getElementById('kuiz').scrollIntoView({behavior:'smooth'});}
+function renderQuestion(){let m=missions[current];if(qIndex>=m.questions.length){finishMission();return;}answered=false;let q=m.questions[qIndex];let area=document.getElementById('questionArea');area.innerHTML='<div class="quizbox"><p><strong>Soalan '+(qIndex+1)+' daripada '+m.questions.length+'</strong></p><h3>'+q.q+'</h3><div class="options">'+q.opts.map((o,i)=>'<button onclick="chooseAnswer('+i+')" id="opt'+i+'">'+String.fromCharCode(65+i)+'. '+o+'</button>').join('')+'</div><div id="feedback" class="feedback" aria-live="polite"></div><div style="margin-top:14px"><button id="nextBtn" class="gold hidden" onclick="nextQuestion()">Soalan seterusnya →</button></div></div>';}
+function chooseAnswer(i){if(answered)return;answered=true;let q=missions[current].questions[qIndex];document.querySelectorAll('.options button').forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});let good=i===q.a;if(good){score++;xp+=10;}document.getElementById('feedback').textContent=(good?'Betul! +10 XP. ':'Belum tepat. ')+q.why;document.getElementById('nextBtn').classList.remove('hidden');updateUI();}
+function nextQuestion(){qIndex++;renderQuestion();}
+function finishMission(){let m=missions[current],passed=score>=Math.ceil(m.questions.length*.6);if(passed){if(!done.has(current)){done.add(current);xp+=20;}document.getElementById('endTitle').textContent='Syabas, misi selesai! 🎉';document.getElementById('endText').textContent='Kamu menjawab '+score+' daripada '+m.questions.length+' soalan dengan betul. '+(done.size===5?'Kamu telah melengkapkan semua tahap dan menjadi Wira Bahasa!':'Lencana tahap ini telah dibuka. Teruskan pengembaraan!');}else{document.getElementById('endTitle').textContent='Terus berlatih, wira! 💪';document.getElementById('endText').textContent='Kamu menjawab '+score+' daripada '+m.questions.length+' soalan dengan betul. Cuba lagi untuk mendapat sekurang-kurangnya 60% dan membuka lencana.';}document.getElementById('questionArea').innerHTML='';document.getElementById('missionEnd').classList.remove('hidden');updateUI();}
+function backToMap(){document.getElementById('kuiz').classList.add('hidden');document.getElementById('peta').scrollIntoView({behavior:'smooth'});}
+function retryMission(){startMission(current);}
+function showCertificate(){document.getElementById('certificate').classList.remove('hidden');document.getElementById('certName').textContent=player;document.getElementById('certText').textContent=done.size===5?'telah berjaya melengkapkan kelima-lima tahap Akademi Wira Bahasa dan memperoleh gelaran Wira Bahasa.':'telah menyertai Akademi Wira Bahasa dan menyelesaikan '+done.size+' daripada 5 tahap latihan.';document.getElementById('certificate').scrollIntoView({behavior:'smooth'});}
+updateUI();
+</script>
+</body>
+</html>
